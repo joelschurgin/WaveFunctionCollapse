@@ -10,11 +10,15 @@ Processes neighboring cells in parallel while calculating which possibilities to
 
 ### Pattern Caching
 Written in ```main_pattern_caching.cpp```.
-Precomputes and saves where we can using three methods. First, we find which patterns are compatible and stores the relationships (for all 8 directions) in a compatibility cache. Second, we store patterns and indices in a hash map. Third, we store entropies in a cache which is updated whenever a pattern changes.
+Precomputes and saves where we can using three methods. First, the relationships of compatible patterns, for the all 8 directions of neighboring cells, are stored in a compatibility cache. Second, patterns and indices are stored in a hash map. Third, entropies are stored in a cache which is updated whenever a pattern changes.
 
 ### Pattern Weight
 Written in ```main_pattern_weight.cpp```.
 Builds upon pattern caching method by counting how many times each pattern occurs in the source image. These counts provide a distribution that we sample from while generating the image.
+
+### Sequential Queue
+Written in ```main_seq_Q.cpp```.
+Instead of looping through the entire output image, cells are processed based on a queue. When a cell's neighbors are visited, they are added to the queue. In addition, cells are marked as queued to prevent adding repeats.
 
 *OpenMP and Sequential Queue variants are based on https://amylh.github.io/WaveCollapseGen/
 
