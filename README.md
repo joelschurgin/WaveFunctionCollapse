@@ -1,8 +1,11 @@
 # Optimizations for the Wave Function Collapse algorithm.
-For those who are unfamiliar, wave function collapse generates an image in the style of a source image. The source image is broken into small patterns and find rules for which patterns can be next to each other based on pixel values. The rules are used to generate a new (usually larger) image.
+
+## GOAL
+Implement an algorithm. Optimize it! Time different versions to test.
 
 ### Original Algorithm 
-Written in ```main_no_parallel.cpp```.
+Written in ```main_no_parallel.cpp```. For those who are unfamiliar, wave function collapse generates an image in the style of a source image. The source image is broken into small patterns and find rules for which patterns can be next to each other based on pixel values. The rules are used to generate a new (usually larger) image.
+
 
 ### OpenMP Parallelization
 Written in ```main_omp.cpp```.
