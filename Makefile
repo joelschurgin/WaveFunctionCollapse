@@ -6,7 +6,7 @@ CONFIGS := x86-Debug x86-Release x64-Debug x64-Release
 
 # Default target
 .PHONY: all
-all: $(CONFIGS)
+all: $(CONFIGS) package
 
 # Help target
 .PHONY: help
@@ -49,7 +49,7 @@ package: package-x86-Debug package-x86-Release package-x64-Debug package-x64-Rel
 # Individual package targets
 package-x86-Debug: build/x86-Debug/bin/Debug/main_seq_Q_d.exe
 	@echo Creating package for x86-Debug...
-	@powershell -Command "$$binDir = 'build/x86-Debug/bin/Debug'; $$packageDir = 'packages/x86-Debug'; if (!(Test-Path $$packageDir)) { New-Item -ItemType Directory -Path $$packageDir | Out-Null }; Copy-Item -Path $$binDir/*.exe -Destination $$packageDir -Force; (Get-Content 'measure_performance.ps1') -replace 'x64-Release', 'x86-Debug' | Set-Content (Join-Path $$packageDir 'measure_performance.ps1'); Copy-Item -Path 'Images' -Destination $$packageDir -Recurse -Force; Compress-Archive -Path $$packageDir -DestinationPath 'WaveFunctionCollapse-x86-Debug.zip' -Force; Write-Host 'Package created: WaveFunctionCollapse-x86-Debug.zip'"
+	@powershell -Command "$$binDir = 'build/x86-Debug/bin/Debug'; $$packageDir = 'packages/x86-Debug'; if (!(Test-Path $$packageDir)) { New-Item -ItemType Directory -Path $$packageDir | Out-Null }; Copy-Item -Path $$binDir/*.exe -Destination $$packageDir -Force; (Get-Content 'measure_performance.ps1') -replace 'x64-Release', 'x86-Debug' | Set-Content (Join-Path $$packageDir 'measure_performance.ps1'); Copy-Item -Path 'Images' -Destination $$packageDir -Recurse -Force;"
 
 package-x86-Release: build/x86-Release/bin/Release/main_seq_Q.exe
 	@echo Creating package for x86-Release...
@@ -57,7 +57,7 @@ package-x86-Release: build/x86-Release/bin/Release/main_seq_Q.exe
 
 package-x64-Debug: build/x64-Debug/bin/Debug/main_seq_Q_d.exe
 	@echo Creating package for x64-Debug...
-	@powershell -Command "$$binDir = 'build/x64-Debug/bin/Debug'; $$packageDir = 'packages/x64-Debug'; if (!(Test-Path $$packageDir)) { New-Item -ItemType Directory -Path $$packageDir | Out-Null }; Copy-Item -Path $$binDir/*.exe -Destination $$packageDir -Force; (Get-Content 'measure_performance.ps1') -replace 'x64-Release', 'x64-Debug' | Set-Content (Join-Path $$packageDir 'measure_performance.ps1'); Copy-Item -Path 'Images' -Destination $$packageDir -Recurse -Force; Compress-Archive -Path $$packageDir -DestinationPath 'WaveFunctionCollapse-x64-Debug.zip' -Force; Write-Host 'Package created: WaveFunctionCollapse-x64-Debug.zip'"
+	@powershell -Command "$$binDir = 'build/x64-Debug/bin/Debug'; $$packageDir = 'packages/x64-Debug'; if (!(Test-Path $$packageDir)) { New-Item -ItemType Directory -Path $$packageDir | Out-Null }; Copy-Item -Path $$binDir/*.exe -Destination $$packageDir -Force; (Get-Content 'measure_performance.ps1') -replace 'x64-Release', 'x64-Debug' | Set-Content (Join-Path $$packageDir 'measure_performance.ps1'); Copy-Item -Path 'Images' -Destination $$packageDir -Recurse -Force;"
 
 package-x64-Release: build/x64-Release/bin/Release/main_seq_Q.exe
 	@echo Creating package for x64-Release...
