@@ -1,5 +1,5 @@
 # Get command line arguments or use defaults
-$inputImage = if ($args[0]) { $args[0] } else { "Images\flowers.png" }
+$inputImage = if ($args[0]) { $args[0] } else { "Images\Flowers.png" }
 $size = if ($args[1]) { $args[1] } else { "--size=16" }
 
 $fullBinPath = ".\"
