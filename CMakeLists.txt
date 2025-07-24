@@ -72,7 +72,6 @@ endif()
 # Define source files
 set(COMMON_SOURCES
     main_seq_Q.cpp
-    main_no_parallel.cpp
     main_omp.cpp
     main_pattern_caching.cpp
     main_pattern_weight.cpp
