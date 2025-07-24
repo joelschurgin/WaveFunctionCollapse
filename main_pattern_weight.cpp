@@ -16,7 +16,6 @@
 #include "stb_image.h"
 #include "stb_image_write.h"
 
-
 // Pattern size (NxN)
 const int N = 3;
 
@@ -512,11 +511,6 @@ int main(int argc, char *argv[]) {
     const int width = size;
     const int height = size;
     const int channels = 4;  // RGBA
-
-    const int MAX_ATTEMPTS =
-        1;  // Maximum number of attempts with different seeds
-    // std::vector<std::future<GenerationResult>> futures;
-    // std::mutex cout_mutex;  // For synchronized console output
 
     const int MAX_ATTEMPTS =
         1;  // Maximum number of attempts with different seeds
