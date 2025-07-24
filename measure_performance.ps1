@@ -25,17 +25,19 @@ foreach ($exe in $executables) {
     Write-Host "Measuring performance of $($exe.Name)..."
     
     # Run the executable 3 times and measure each execution
+    $average = 0
     for ($i = 1; $i -le 3; $i++) {
         $result = Measure-Command {
             & $exe.FullName $arguments
         }
         
         # Format the time in a readable way
-        # $minutes = [math]::Floor($result.TotalMinutes)
-        $seconds = $result.TotalSeconds % 60
-        # $milliseconds = $result.TotalMilliseconds % 1000
+        $seconds = $result.TotalSeconds
+        $average = $average + $seconds / 3
         
-        Write-Host "Run ${i} | Time: ${seconds}s"
+        Write-Host "Run ${i} | Time: ${seconds} s"
     }
+    Write-Host ""
+    Write-Host "AVERAGE: ${seconds} s"
     Write-Host ""
 }
