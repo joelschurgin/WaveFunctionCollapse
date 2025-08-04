@@ -22,6 +22,9 @@ Instead of looping through the entire output image, cells are processed based on
 *OpenMP and Sequential Queue variants are based on https://amylh.github.io/WaveCollapseGen/
 Images from https://github.com/CodingTrain/Wave-Function-Collapse/tree/main/Processing/WFC_Overlapping_Model/images
 
+## Data
+![](charts/Time_to_Complete_Wave_Function_Collapse.png)
+
 ## Future Improvements
 One issue with the current methodolgy for testing is that sometimes wave function collapse will be unable to fill the entire output image due to having too many constraints and/or some bad luck. When timing these approaches
 
